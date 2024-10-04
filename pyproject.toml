@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "nonebot_plugin_xjj_video"
+version = "0.1.0"
+description = "从API获取美女视频发送到聊天软件"
+authors = ["chsiyu <rk.chensiyu@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+httpx = "^0.25.0"
+nonebot2 = "^2.2.0"
+nonebot-adapter-onebot = "^2.3.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
