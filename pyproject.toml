@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nonebot_plugin_xjj_video"
-version = "0.1.0"
+version = "0.1.1"
 description = "从API获取美女视频发送到聊天软件"
 authors = ["chsiyu <rk.chensiyu@gmail.com>"]
 license = "MIT"
