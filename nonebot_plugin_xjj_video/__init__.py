@@ -98,33 +98,22 @@ async def handle_xjj_video(bot: Bot, event: MessageEvent, state: T_State):
             await bot.send(event, "所有视频下载失败，请稍后再试。")
             return
 
-        msg_list = []
+        # Limit the number of videos to send (e.g., maximum 3)
+        max_videos = 3
+        temp_files = temp_files[:max_videos]
+
         for i, temp_file in enumerate(temp_files, start=1):
             try:
-                msg_list.append({
-                    "type": "node",
-                    "data": {
-                        "name": "小姐姐视频Bot",
-                        "uin": event.self_id,
-                        "content": MessageSegment.video(file=temp_file)
-                    }
-                })
-                logger.info(f"Added video {i} to messages")
+                if event.message_type == "group":
+                    await bot.send_group_msg(group_id=event.group_id, message=MessageSegment.video(file=temp_file))
+                else:
+                    await bot.send_private_msg(user_id=event.user_id, message=MessageSegment.video(file=temp_file))
+                logger.info(f"Sent video {i} successfully")
+                await asyncio.sleep(1)  # Add a 1-second delay between sending videos
             except Exception as e:
-                logger.error(f"Error adding video {i} to messages: {str(e)}")
-        
-        if not msg_list:
-            await bot.send(event, "所有视频处理失败，请稍后再试。")
-            return
-        
-        # 发送合并转发消息
-        if event.message_type == "group":
-            await bot.send_group_forward_msg(group_id=event.group_id, messages=msg_list)
-        else:
-            await bot.send_private_forward_msg(user_id=event.user_id, messages=msg_list)
-        
-        logger.info(f"Sent {len(msg_list)} videos successfully")
-        await bot.send(event, f"成功发送了 {len(msg_list)} 个视频。")
+                logger.error(f"Error sending video {i}: {str(e)}")
+
+        await bot.send(event, f"成功发送了 {len(temp_files)} 个视频。")
     except Exception as e:
         logger.error(f"Error in handle_xjj_video: {str(e)}")
         await bot.send(event, f"发送视频失败：{str(e)}")
