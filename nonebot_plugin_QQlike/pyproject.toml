@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "nonebot_plugin_QQlike"
+version = "0.1.0"
+description = "给QQ个人主页点赞的插件"
+authors = ["Endless-Path <rk.chensiyu@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+nonebot2 = "^2.2.0"
+nonebot-adapter-onebot = "^2.3.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

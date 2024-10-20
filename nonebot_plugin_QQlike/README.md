@@ -4,12 +4,12 @@
 
 <div align="center">
 
-# nonebot_plugin_xjj_video
+# nonebot_plugin_QQlike
 
-_✨小姐姐视频✨_
+_✨QQlike✨_
 
 ## 介绍
-获取小姐姐视频
+给QQ个人主页点赞的插件
 
 ## 使用方法
-- @bot+小姐姐视频/小姐姐 
+- 发送“赞我”
