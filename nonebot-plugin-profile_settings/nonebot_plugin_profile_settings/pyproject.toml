@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "nonebot_plugin_profile_settings"
+version = "0.1.0"
+description = "NoneBot2 插件用于设置机器人的头像和个人签名"
+authors = ["Endless-Path <rk.chensiyu@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+nonebot2 = "^2.0.0"
+nonebot-adapter-onebot = "^2.2.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
