@@ -7,4 +7,4 @@
 # nonebot_plugin_xjj_video
 
 _✨小姐姐视频✨_
-
+- @bot 小姐姐视频/小姐姐 触发

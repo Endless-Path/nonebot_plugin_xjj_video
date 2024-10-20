@@ -2,7 +2,7 @@
 name = "nonebot_plugin_xjj_video"
 version = "0.1.1"
 description = "从API获取美女视频发送到聊天软件"
-authors = ["chsiyu <rk.chensiyu@gmail.com>"]
+authors = ["Endless-Path <rk.chensiyu@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 
