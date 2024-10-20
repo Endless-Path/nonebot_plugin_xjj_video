@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "nonebot_plugin_group_manager"
+name = "nonebot_plugin_group_info"
 version = "0.1.0"
 description = "NoneBot2 插件用于管理群聊信息，包括设置群名片、群名、群头像和精华消息等"
 authors = ["Endless-Path <rk.chensiyu@gmail.com>"]
