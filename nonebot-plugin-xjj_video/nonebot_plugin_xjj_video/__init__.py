@@ -15,7 +15,7 @@ __plugin_meta__ = PluginMetadata(
     description="获取并发送小姐姐视频",
     usage='输入"小姐姐视频"或"小姐姐"触发',
     type="application",
-    homepage="https://github.com/chsiyu/nonebot_plugin_xjj_video",
+    homepage="https://github.com/Endless-Path/Endless-path-nonebot-plugins/tree/main/nonebot-plugin-xjj_video",
     supported_adapters={"~onebot.v11"},
 
 )

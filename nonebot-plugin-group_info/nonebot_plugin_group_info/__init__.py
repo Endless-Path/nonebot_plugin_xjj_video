@@ -17,7 +17,7 @@ __plugin_meta__ = PluginMetadata(
     注意：以上命令仅群主、管理员或超级用户可用。
     """,
     type="application",
-    homepage="https://github.com/Endless-Path/Endless-path-nonebot-plugins/nonebot-plugin-group-manager",
+    homepage="https://github.com/Endless-Path/Endless-path-nonebot-plugins/tree/main/nonebot-plugin-group_info",
     supported_adapters={"~onebot.v11"},
 )
 

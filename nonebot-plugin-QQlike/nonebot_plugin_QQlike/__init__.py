@@ -7,7 +7,11 @@ from nonebot.exception import MatcherException, ActionFailed
 __plugin_meta__ = PluginMetadata(
     name="QQlike",
     description="给QQ个人主页点赞的插件",
-    usage="发送'赞我'即可"
+    usage="发送'赞我'即可",
+    type="application",
+    homepage="https://github.com/Endless-Path/Endless-path-nonebot-plugins/tree/main/nonebot-plugin-QQlike",
+    supported_adapters={"~onebot.v11"},
+
 )
 
 like = on_command("赞我", aliases={"点赞"}, priority=5, block=True)
