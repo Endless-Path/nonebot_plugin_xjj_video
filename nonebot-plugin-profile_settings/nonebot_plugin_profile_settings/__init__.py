@@ -8,10 +8,11 @@ from nonebot.log import logger
 
 __plugin_meta__ = PluginMetadata(
     name="机器人资料设置",
-    description="设置机器人的头像和个人签名。",
+    description="设置机器人的头像、昵称和个人签名。",
     usage="""
     - 设置头像: 发送 "设置头像" 并附带图片，或回复包含图片的消息。
     - 设置签名: 发送 "设置签名 新签名内容"。
+    - 设置昵称: 发送 "设置昵称 新昵称"。
     注意：以上命令仅超级用户可用。
     """,
     type="application",
@@ -19,8 +20,12 @@ __plugin_meta__ = PluginMetadata(
     supported_adapters={"~onebot.v11"},
 )
 
+# 设置头像的命令
 set_avatar = on_command("设置头像", permission=SUPERUSER, priority=10, block=True)
+# 设置签名的命令
 set_signature = on_command("设置签名", permission=SUPERUSER, priority=10, block=True)
+# 设置昵称的命令
+set_nickname = on_command("设置昵称", permission=SUPERUSER, priority=10, block=True)
 
 @set_avatar.handle()
 async def handle_set_avatar(bot: Bot, event: Event, args: Message = CommandArg()):
@@ -60,3 +65,21 @@ async def handle_set_signature(bot: Bot, event: Event, args: Message = CommandAr
         await set_signature.send(f"设置个人签名失败: {str(e)}")
     
     await set_signature.finish()
+
+@set_nickname.handle()
+async def handle_set_nickname(bot: Bot, event: Event, args: Message = CommandArg()):
+    # 检查是否有昵称参数
+    if not args:
+        await set_nickname.finish("请提供要设置的昵称")
+    
+    nickname = args.extract_plain_text().strip()
+    
+    try:
+        # 调用 set_qq_profile API 设置昵称
+        await bot.call_api("set_qq_profile", nickname=nickname)
+        await set_nickname.send("昵称设置成功!")
+    except Exception as e:
+        logger.exception("设置昵称失败")
+        await set_nickname.send(f"设置昵称失败: {str(e)}")
+    
+    await set_nickname.finish()
